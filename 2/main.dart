@@ -5,6 +5,7 @@ void main() async {
 
   int depth = 0;
   int horizontal = 0;
+  int aim = 0;
 
   for (var i = 0; i < input.length; i++) {
     final List<String> instruction = input[i].split(' ');
@@ -13,8 +14,9 @@ void main() async {
 
     if (action == 'forward') {
       horizontal = horizontal + distance;
+      depth = depth + (distance * aim);
     } else {
-      depth = (action == 'up') ? depth - distance : depth + distance;
+      aim = (action == 'up') ? aim - distance : aim + distance;
     }
   }
 
